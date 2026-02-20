@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>3rd Sem Material</title>
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .subject-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+
+        .subject-card:hover::before {
+            left: 100%;
+        }
+
+        .subject-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .subject-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .download-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .subject-card:hover .download-btn {
+            background: #f0f0f0;
+            transform: scale(1.05);
+            animation: none;
+        }
+
+        .download-btn::before {
+            content: '⬇ ';
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-link a {
+            color: #aaa; /* Lighter gray color */
+            text-decoration: none;
+            font-weight: 500; /* Normal font weight */
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .back-link a:hover {
+            color: #777; /* Darker gray on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>📚 3rd Semester Study Materials</h1>
+            <p>Click on any subject to download materials from Google Drive</p>
+        </div>
+
+        <div class="subjects-grid">
+            <!-- D.M Subject -->
+            <a href="https://drive.google.com/drive/folders/1iQtzHyz7-UM79qekVINNq-AF3wxdbkc3?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-card-content">
+                    <div class="subject-name">D.M</div>
+                    <button class="download-btn" type="button">Click</button>
+                </div>
+            </a>
+
+            <!-- I.T.W Subject -->
+            <a href="https://drive.google.com/drive/folders/1ndckuWvA7qFvBjh5I_JoVkBnOmo69SJM?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-card-content">
+                    <div class="subject-name">I.T.W</div>
+                    <button class="download-btn" type="button">Click</button>
+                </div>
+            </a>
+
+            <!-- D.B.M.S Subject (updated link) -->
+            <a href="https://drive.google.com/drive/folders/147dSsz2YJREDEW9gZ_yONaKtbu2S7Kuq?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-card-content">
+                    <div class="subject-name">D.B.M.S</div>
+                    <button class="download-btn" type="button">Click</button>
+                </div>
+            </a>
+
+            <!-- D.E Subject (updated link) -->
+            <a href="https://drive.google.com/drive/folders/1YMX0PoOb4FfYDu4TDU3z8phqcz28sXmm?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-card-content">
+                    <div class="subject-name">D.E</div>
+                    <button class="download-btn" type="button">Click</button>
+                </div>
+            </a>
+
+            <!-- D.S.A Subject (updated link) -->
+            <a href="https://drive.google.com/drive/folders/1EjYMkjiixFBJF9F2WtseVlP0-JySFuKe?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-name">D.S.A</div>
+                <button class="download-btn" type="button">Click</button>
+            </a>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

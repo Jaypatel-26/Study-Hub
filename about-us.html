@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Main Content Container */
+        .content-wrapper {
+            background-color: #ffffff;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px 50px;
+            width: 100%;
+            max-width: 800px;
+            text-align: left;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #555;
+            margin-top: 40px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .creator-info {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .creator-info p {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        
+        .creator-info strong {
+            color: #667eea;
+        }
+
+        /* Back to Home Link */
+        .back-link {
+            text-decoration: none;
+            color: #aaa;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: #777;
+        }
+        
+        .center-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Styles for the moved box */
+        .info-box {
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 40px auto;
+            background: linear-gradient(135deg, #1e90ff 0%, #2563eb 100%);
+            color: #fff;
+            animation: floatY 4s ease-in-out infinite;
+            text-align: left;
+            max-width: 90%;
+        }
+
+        .info-box h2 {
+            margin-top: 0;
+            font-size: 24px;
+            border-bottom: none; /* Override general h2 style */
+            padding-bottom: 0;
+        }
+
+        .info-box p {
+            line-height: 1.6;
+            color: #fff; /* Override general p style */
+        }
+
+        /* floating animation */
+        @keyframes floatY {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <h1>About Our Platform</h1>
+
+        <div class="info-box">
+            <h2>Our Platform</h2>
+            <p>
+                This platform serves as a comprehensive digital hub designed specifically to facilitate academic excellence. The website is known for its extensive and meticulously organized repository, offering a wide array of high-quality study resources. Users can easily navigate through subject-specific sections, ensuring students and educators alike have immediate access to verified and up-to-date educational materials essential for effective learning and teaching.
+            </p>
+        </div>
+        
+        <p>
+            Welcome to our dedicated hub for engineering study materials. We understand the challenges students face in finding reliable, organized, and high-quality resources. Our platform was created to bridge that gap.
+        </p>
+
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is simple: to provide a centralized, easy-to-navigate repository of study materials for engineering students. We aim to support academic excellence by offering immediate access to a wide array of notes, papers, and essential learning content, all verified and up-to-date.
+        </p>
+
+        <div class="creator-info">
+            <p>This platform is managed and created by <strong>JAYKUMAR S. PATEL</strong>.</p>
+        </div>
+        
+        <div class="center-link">
+             <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+
+
+</html></body>
+</body>
+</html>

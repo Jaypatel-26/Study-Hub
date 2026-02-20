@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Semester Materials</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2); /* Darker Gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Main Content Container */
+        .content-wrapper {
+            background-color: #ffffff;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px 50px;
+            width: 100%;
+            max-width: 950px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 40px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Grid for Subjects */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Subject Card */
+        .subject-card {
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(145deg, #6a7ffb, #725ac1); /* Darker Card Gradient */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(106, 127, 251, 0.4); /* Adjusted Shadow Color */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 140px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0; /* Hidden for animation */
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        /* Staggered Animation Delay */
+        .subject-card:nth-child(1) { animation-delay: 0.2s; }
+        .subject-card:nth-child(2) { animation-delay: 0.3s; }
+        .subject-card:nth-child(3) { animation-delay: 0.4s; }
+        .subject-card:nth-child(4) { animation-delay: 0.5s; }
+        .subject-card:nth-child(5) { animation-delay: 0.6s; }
+        .subject-card:nth-child(6) { animation-delay: 0.7s; }
+
+
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(106, 127, 251, 0.5); /* Adjusted Hover Shadow */
+        }
+
+        .subject-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            background-color: #fff;
+            color: #6a7ffb; /* Adjusted Button Text Color */
+            border: none;
+            padding: 8px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn::before {
+            content: '↓ ';
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Back to Home Link */
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: #888;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #555;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .content-wrapper {
+                padding: 30px 25px;
+            }
+            .subjects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1 class="page-title">📚 1st Semester Study Materials</h1>
+            <p class="page-subtitle">Click on any subject to download materials from Google Drive</p>
+        </div>
+
+        <div class="subjects-grid">
+            <!-- Maths-1 -->
+            <a href="https://drive.google.com/drive/folders/1Qc11EA77BHqczkth0I1QkkaEDwiy_YkK?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-name">Maths-1</div>
+                <button class="download-btn" type="button">Click</button>
+            </a>
+            <!-- Physics -->
+            <a href="https://drive.google.com/drive/folders/1qQsBD9wLbwxuiO1-fhP-ITHXZY2GU4yx?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-name">Physics</div>
+                <button class="download-btn" type="button">Click</button>
+            </a>
+            <!-- FOP -->
+            <a href="https://drive.google.com/drive/folders/1l78aaeReTGkYM8NoP7zyHZuEP08e6wlw?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-name">FOP</div>
+                <button class="download-btn" type="button">Click</button>
+            </a>
+            <!-- BEEE -->
+            <a href="https://drive.google.com/drive/folders/19_7x8z6zLagnKyh4UwgN-hizJLHg9T8W?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-name">BEEE</div>
+                <button class="download-btn" type="button">Click</button>
+            </a>
+            <!-- BCPS -->
+            <a href="https://drive.google.com/drive/folders/1l_3FGdDaToXxD_pwQ7ps1kn7c3ei0E3w?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-name">BCPS</div>
+                <button class="download-btn" type="button">Click</button>
+            </a>
+            <!-- FME -->
+            <a href="https://drive.google.com/drive/folders/1gv5b0iVHtscBcZ4m58tuOCDByNMmaqOC?usp=drive_link" target="_blank" rel="noopener" class="subject-card">
+                <div class="subject-name">FME</div>
+                <button class="download-btn" type="button">Click</button>
+            </a>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+</body>
+</html>
