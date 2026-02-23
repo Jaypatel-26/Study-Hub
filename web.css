@@ -1,829 +1,232 @@
-/* styles.css */
+:root {
+    --bg: #0f172a;
+    --bg-soft: #1e293b;
+    --panel: rgba(15, 23, 42, 0.78);
+    --primary: #38bdf8;
+    --primary-dark: #0ea5e9;
+    --text: #e2e8f0;
+    --muted: #cbd5e1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    color: white; /* Text color ko white rakha gaya hai behtar contrast ke liye */
-    min-height: 100vh;
-    /* Background image ko yahan badla gaya hai */
-    background-image: url("new image.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    overflow-x: hidden; /* Disable horizontal scrolling */
-    width: 100%; /* Ensure full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url("new image.jpg") center/cover fixed;
 }
 
-/* Paradhne me aasani ke liye semi-transparent overlay */
-body::before {
-    content: '';
-    position: fixed;
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.site-header {
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.2); /* Overlay ko thoda aur transparent banaya gaya hai (0.4 se 0.2) */
-    z-index: -1;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.92);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    backdrop-filter: blur(8px);
 }
 
-/* ensure content is above overlay */
-.center-box, .login-container, .vertical-banner, .banner-toggle, .site-footer {
-    position: relative;
-    z-index: 1; /* This is no longer needed but is fine to keep */
-}
-
-/* Center Box Image */
-.center-image-container {
+.nav-wrap {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 100px 20px 15px 20px; /* Significantly increased space between header and image */
-    box-sizing: border-box;
+    padding: 0.9rem 0;
+    gap: 1rem;
 }
 
-.image-box {
-    position: relative;
-    max-width: 800px;
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.image-box:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    border-color: rgba(52, 152, 219, 0.5);
-}
-
-.main-box-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 17px;
-    transition: all 0.3s ease;
-}
-
-.image-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(30, 60, 114, 0.1));
-    border-radius: 20px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.image-box img {
-    position: relative;
-    z-index: 2;
-}
-
-/* Center Menu Container */
-.center-menu-container {
+.brand {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 80px 20px 0px 20px; /* No bottom padding - menu connected to footer */
-    min-height: auto; /* Removed fixed height */
-    box-sizing: border-box;
+    gap: 0.75rem;
+    color: var(--text);
+    text-decoration: none;
 }
 
-.center-menu {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
+.brand-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(56, 189, 248, 0.4);
 }
 
-.center-menu h2 {
-    color: white;
-    font-size: 32px;
+.brand-title {
+    margin: 0;
     font-weight: 700;
-    margin-bottom: 40px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.menu-grid {
+.brand-subtitle {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.main-nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: white;
+}
+
+.hero {
+    padding: 4rem 0 3rem;
+}
+
+.hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.menu-item {
-    width: 100%;
-    max-width: 300px;
-}
-
-.menu-item a {
-    display: flex;
+    grid-template-columns: 1.1fr 1fr;
     align-items: center;
-    justify-content: center;
-    padding: 30px 25px;
-    background: linear-gradient(135deg, rgba(52, 152, 219, 0.3), rgba(52, 152, 219, 0.1));
-    border: 2px solid rgba(52, 152, 219, 0.5);
-    border-radius: 15px;
-    color: white !important;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    min-height: 120px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    gap: 2rem;
 }
 
-.menu-item a:hover {
-    background: linear-gradient(135deg, rgba(52, 152, 219, 0.5), rgba(52, 152, 219, 0.3));
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border-color: rgba(52, 152, 219, 0.7);
-}
-
-.menu-item a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.menu-item a:hover::before {
-    left: 100%;
-}
-
-.submenu {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0 0 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-}
-
-.submenu-parent.open .submenu {
-    max-height: 300px;
-}
-
-.submenu li {
-    margin: 10px 0;
-}
-
-.submenu li a {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 15px 20px;
-    font-size: 16px;
-    font-weight: 500;
-    min-height: auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.submenu li a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.fa-chevron-down {
-    margin-left: 10px;
-    transition: transform 0.3s ease;
-}
-
-.submenu-parent.open .fa-chevron-down {
-    transform: rotate(180deg);
-}
-
-/* White Login Section */
-.white-login-section {
-    display: flex;
-    justify-content: center;
+.badge {
+    display: inline-flex;
+    gap: 0.5rem;
     align-items: center;
-    padding: 10px 20px 0px 20px; /* Removed bottom padding - no space between login and footer */
-    box-sizing: border-box;
+    margin: 0;
+    font-size: 0.88rem;
+    color: #bae6fd;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 999px;
+    padding: 0.38rem 0.85rem;
 }
 
-.white-login-container {
-    background: white;
-    border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+h1,
+h2,
+h3 {
+    margin-top: 0;
 }
 
-.white-login-container h2 {
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 28px;
-    font-weight: 700;
+.hero h1 {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin: 1rem 0;
 }
 
-.login-form {
+.hero-text,
+.section-subtitle,
+.card p,
+.feature-item p,
+.contact p {
+    color: var(--muted);
+}
+
+.hero-actions {
+    margin-top: 1.5rem;
     display: flex;
-    flex-direction: column;
+    gap: 0.9rem;
+    flex-wrap: wrap;
 }
 
-.login-form .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.login-form label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.login-form input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-sizing: border-box;
-    background: #fafafa;
-}
-
-.login-form input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
-    background: white;
-    outline: none;
-}
-
-.login-form input::placeholder {
-    color: #999;
-}
-
-.login-form .login-btn {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-.login-form .login-btn:hover {
-    background: linear-gradient(135deg, #2980b9, #21618c);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-}
-
-.login-form .signup-link {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #666;
-}
-
-.login-form .signup-link a {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.login-form .signup-link a:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-/* NEW: Main layout container for vertical centering */
-.main-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px; /* Vertical and horizontal padding */
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 100vh;
-}
-
-.center-box {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 28px;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(37,99,235,0.25);
-    display: block;
-}
-
-.login-container {
-    background: linear-gradient(135deg, #8B4513, #A0522D);
-    padding: 40px;
+.btn {
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    width: 380px; /* Slightly wider */
-    text-align: center;
-    animation: slideUp 0.8s ease-out;
-    margin: 0; /* REMOVED margin settings */
-    color: white;
-    flex: 0 0 auto;
-    /* order: 2; */ /* REMOVED */
-}
-
-.login-container h2 {
-    color: white; /* White heading for contrast */
-    margin-bottom: 20px;
-}
-
-.login-container label {
-    color: rgba(255, 255, 255, 0.9); /* Light text for labels */
-}
-
-.login-container input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.95);
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-sizing: border-box;
-}
-
-.login-container input:focus {
-    border-color: #fff;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    background: white;
-}
-
-.login-container .login-btn {
-    width: 100%;
-    padding: 10px;
-    background: #F5F5DC;
-    color: #5D4037;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.login-container .login-btn:hover {
-    background: #f0f0f0;
-    transform: translateY(-2px);
-}
-
-.login-container .signup-link {
-    margin-top: 20px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.login-container .signup-link a {
-    color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    padding: 0.75rem 1.2rem;
 }
 
-.login-container .signup-link a:hover {
-    text-decoration: underline;
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #06243a;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.btn-secondary {
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    color: var(--text);
 }
 
-@keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.hero-media {
+    background: rgba(148, 163, 184, 0.12);
+    padding: 0.75rem;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-label {
+.hero-image {
+    width: 100%;
     display: block;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-sizing: border-box;
-}
-
-input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
-}
-
-.login-btn {
-    width: 100%;
-    padding: 10px;
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.login-btn:hover {
-    background: #5a67d8;
-    transform: translateY(-2px);
-}
-
-.signup-link {
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.signup-link a {
-    color: #667eea;
-    text-decoration: none;
-}
-
-.signup-link a:hover {
-    text-decoration: underline;
-}
-
-/* New Top Header Styles */
-.top-header {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(90deg, #1e3c72, #2a5298); /* Dark blue gradient */
-    color: white; /* White text for visibility */
-    padding: 15px 30px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1200;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    box-sizing: border-box;
-    height: 70px;
-}
-
-.header-logo {
-    max-height: 50px;
-    margin-right: 15px;
-}
-
-.title-container h1 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.title-container p {
-    margin: 0;
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-/* banner.css */
-.vertical-banner {
-    position: fixed;
-    top: 70px; /* Position below the new top header */
-    left: 0;
-    width: 250px;
-    height: calc(100vh - 70px); /* Adjust height */
-    background: linear-gradient(180deg, #2c3e50, #34495e); /* Dark gradient sidebar */
-    color: white; /* White text for visibility */
-    padding: 0;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transform: translateX(0);
-    transition: transform 0.28s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.vertical-banner h3 {
-    margin: 0;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.vertical-banner ul {
-    list-style: none;
-    padding: 20px;
-    margin: 0;
-    flex: 1;
-}
-
-.vertical-banner ul li a {
-    color: rgba(255, 255, 255, 0.95) !important; /* Bright white text */
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center the text */
-    padding: 20px 25px;
-    transition: all 0.3s ease;
     border-radius: 12px;
-    margin-bottom: 15px;
-    font-weight: 600;
-    font-size: 18px;
-    background: rgba(52, 152, 219, 0.15); /* Blue background */
-    border: 2px solid rgba(52, 152, 219, 0.3); /* Blue border */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-    text-align: center;
-    min-height: 60px;
 }
 
-.vertical-banner ul li a:hover {
-    background: rgba(52, 152, 219, 0.35); /* Darker blue hover background */
-    color: white !important;
-    transform: translateY(-3px) scale(1.02); /* Lift and scale effect */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-    border-color: rgba(52, 152, 219, 0.5); /* Stronger blue border on hover */
+.resources,
+.features,
+.contact {
+    padding: 3rem 0;
 }
 
-.vertical-banner .submenu a {
-    padding: 15px 25px 15px 40px;
-    color: rgba(255, 255, 255, 0.8) !important; /* Brighter text for submenu items */
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
-    background: rgba(52, 152, 219, 0.1); /* Lighter blue background for submenu */
-    border: 1px solid rgba(52, 152, 219, 0.2); /* Lighter blue border */
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Moderate shadow */
-    text-align: left;
-    justify-content: flex-start;
+.cards,
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
 }
 
-/* make toggle always reachable (visible even when banner is collapsed) */
-.banner-toggle {
-    position: fixed;
-    top: 80px; /* Adjust to be below the new top header */
-    left: 262px; /* sits just to right of the open banner (250px width + 12px gap) */
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
-    border: none;
-    background: #3498db; /* Blue button to match theme */
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1100;
-    transition: left 0.28s ease, transform 0.18s;
+.card,
+.feature-item,
+.contact-box {
+    background: var(--panel);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 14px;
+    padding: 1.2rem;
 }
 
-/* keep aria visual focus on hover */
-.banner-toggle:hover { transform: translateY(-2px); }
-
-.vertical-banner li {
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.vertical-banner a {
-    color: white !important;
+.card a {
+    color: #7dd3fc;
     text-decoration: none;
-    font-size: 16px;
-    display: block;
-    padding: 12px 15px;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-    position: relative;
-    border-left: 3px solid transparent;
+    font-weight: 600;
 }
 
-.vertical-banner a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Light white hover */
-    border-left: 3px solid #3498db;
+.feature-item i {
+    font-size: 1.3rem;
+    color: var(--primary);
 }
 
-/* Footer (shared) — non-fixed modern footer */
+.contact-box {
+    text-align: center;
+}
+
 .site-footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Blue gradient background */
-    color: white !important; /* white text */
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    padding: 1rem 0;
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.footer-wrap {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 700; /* Bold text */
-    margin-top: 60px; /* Space above footer */
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-    border-top: 3px solid rgba(255, 255, 255, 0.1);
-    text-transform: uppercase; /* Capital letters */
-    letter-spacing: 1px; /* Better spacing for caps */
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-/* Footer strong emphasis */
-.site-footer strong {
-    color: white !important; /* ensure name is white */
-    font-weight: 900; /* Extra bold */
-    font-size: 20px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-/* Footer container for better layout */
-.site-footer .footer-content {
-    max-width: 1200px;
-    width: 100%;
-    text-align: center;
-    padding: 0 20px;
-    font-weight: 700; /* Bold content */
-}
-
-/* center animated blue box between banner and login */
-.center-box {
-    flex: 0 0 auto;
-    max-width: 640px;
-    margin: 0 0 40px 0; /* Replaced margin with margin-bottom */
-    background: linear-gradient(135deg,#1e90ff 0%, #2563eb 100%);
-    color: #fff;
-    padding: 28px;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(37,99,235,0.25);
-    display: block;
-    animation: floatY 4s ease-in-out infinite;
-    text-align: left;
-    /* order: 1; */ /* REMOVED */
-}
-
-.center-box h2 {
-    margin: 0 0 8px 0;
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-}
-
-.center-box .center-desc {
-    margin: 0;
-    color: #fff; /* paragraph in white */
-    opacity: 0.98;
-    line-height: 1.6;
-    font-size: 14px;
-}
-
-/* floating animation */
-@keyframes floatY {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-/* responsive adjustments */
-@media (max-width: 900px) {
-    /* body { 
-        padding-left: 0; 
-        flex-direction: column;
-    } */ /* REMOVED this rule */
-    .main-layout {
-        padding-left: 20px; /* Remove extra padding when banner is not fixed */
+@media (max-width: 860px) {
+    .hero-grid,
+    .cards,
+    .feature-grid {
+        grid-template-columns: 1fr;
     }
-    .vertical-banner { position: relative; width: 100%; height: auto; transform: translateX(0); }
-    .banner-toggle { display: none; }
-    .center-box, .login-container { max-width: 90%; margin: 20px auto; }
-}
 
-/* Add this at the end of the file */
-.semester-page {
-    padding: 40px;
-    text-align: center;
-    width: calc(100% - 200px); /* Adjust for the left banner */
-    margin-left: 200px; /* Space for the left banner */
-}
-
-.semester-page h1 {
-    color: #333;
-    margin-bottom: 30px;
-}
-
-/* Submenu Styles */
-.submenu-parent .submenu-toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.submenu-parent .submenu-toggle .fa-chevron-down {
-    transition: transform 0.3s ease;
-    font-size: 12px;
-    opacity: 0.7;
-    margin-left: 8px;
-}
-
-.submenu-parent.open .submenu-toggle .fa-chevron-down {
-    transform: rotate(180deg);
-    opacity: 1;
-}
-
-.submenu {
-    list-style-type: none;
-    padding-left: 15px; /* Indent submenu items */
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    margin: 0;
-}
-
-.submenu-parent.open .submenu {
-    max-height: 500px; /* Adjust as needed */
-    margin-top: 10px;
-}
-
-.submenu li a {
-    font-size: 14px; /* Smaller font for submenu items */
-    padding: 8px 10px;
-}
-
-/* Visitor Stats Section */
-.visitor-stats {
-    margin-top: auto; /* Pushes the stats to the bottom */
-    padding-top: 20px;
-}
-
-.stat-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.stat-info p {
-    margin: 0 0 2px 0;
-    font-size: 10px;
-    font-weight: 600;
-    opacity: 0.9;
-    letter-spacing: 0.5px;
-}
-
-.stat-info span {
-    font-size: 22px;
-    font-weight: 700;
-    display: block;
-}
-
-.stat-icon i {
-    font-size: 22px;
-    opacity: 0.8;
-}
-
-/* Card-specific background colors */
-.stat-card.monthly-visitors {
-    background: linear-gradient(to right, #2563eb, #1e90ff);
-}
-
-.stat-card.todays-visitors {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-}
-
-.stat-card.active-now {
-    background: linear-gradient(to right, #4169E1, #1E90FF);
-}
-
-.stat-card.lifetime-visitors {
-    background: linear-gradient(to right, #f12711, #f5af19);
-}
-
-.vertical-banner {
-    display: flex;
-    flex-direction: column;
+    .hero {
+        padding-top: 2rem;
+    }
 }

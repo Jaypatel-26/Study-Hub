@@ -3,64 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hub | College Learning Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="web.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="top-header">
-        <img src="LOGO.jpg" alt="Study Hub Logo" class="header-logo">
-        <div class="title-container">
-            <h1>Study Hub</h1>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="#home" class="brand">
+                <img src="LOGO.jpg" alt="Study Hub logo" class="brand-logo">
+                <div>
+                    <p class="brand-title">Study Hub</p>
+                    <p class="brand-subtitle">College Learning Portal</p>
+                </div>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="#resources">Resources</a>
+                <a href="#features">Features</a>
+                <a href="about-us.html" target="_blank" rel="noopener">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
-    <!-- Center Box Image -->
-    <div class="center-image-container">
-        <div class="image-box">
-            <img src="BOX IMAGE FOR MAIN PAGE.jpg" alt="Main Page Box Image" class="main-box-image">
-        </div>
-    </div>
 
-    <!-- Center Menu Container -->
-    <div class="center-menu-container">
-        <div class="center-menu">
-            <h2>Menu</h2>
-            <div class="menu-grid">
-                <div class="menu-item submenu-parent">
-                    <a href="#" class="submenu-toggle">CE Department <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="web-1st-sem.html" target="_blank" rel="noopener">1st Sem Material</a></li>
-                        <li><a href="web-2nd-sem.html" target="_blank" rel="noopener">2nd Sem Material</a></li>
-                        <li><a href="web-3rd-sem.html" target="_blank" rel="noopener">3rd Sem Material</a></li>
-                    </ul>
+    <main id="home">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <p class="badge"><i class="fa-solid fa-graduation-cap"></i> Built for college students</p>
+                    <h1>One place for your semester notes, papers, and quick revision.</h1>
+                    <p class="hero-text">
+                        Study Hub helps students access curated learning materials by semester,
+                        stay updated with academic announcements, and focus on learning with less searching.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#resources" class="btn btn-primary">Browse Materials</a>
+                        <a href="about-us.html" target="_blank" rel="noopener" class="btn btn-secondary">Learn More</a>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <a href="#news">News</a>
-                </div>
-                <div class="menu-item">
-                    <a href="about-us.html" target="_blank" rel="noopener">About Us</a>
+                <div class="hero-media">
+                    <img src="BOX IMAGE FOR MAIN PAGE.jpg" alt="Students studying together" class="hero-image">
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="main-layout">
-        <div class="login-container">
-            <h2>🙏 Thank You for Visiting Our Study Hub🙏</h2>
-            <p style="text-align: left; line-height: 1.6;">
-                Hello,<br><br>
-                First and foremost, thank you very much for visiting our Study Hub website! We are delighted that you chose to explore our resources for your study needs. We are constantly striving to make our hub useful, informative, and enriched with the latest learning materials. We hope you found everything you were looking for. Your feedback is invaluable to us, and we welcome any suggestions or questions you might have. We wish you all the best for your bright future!
-            </p>
-        </div>
-    </div>
+        <section class="resources" id="resources">
+            <div class="container">
+                <h2>Semester Resources</h2>
+                <p class="section-subtitle">Select your semester and access subject-wise material instantly.</p>
+                <div class="cards">
+                    <article class="card">
+                        <h3>1st Semester</h3>
+                        <p>Foundation subjects, notes, and beginner engineering resources.</p>
+                        <a href="web-1st-sem.html" target="_blank" rel="noopener">Open Resources <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="card">
+                        <h3>2nd Semester</h3>
+                        <p>Concept-focused content, solved examples, and practical prep.</p>
+                        <a href="web-2nd-sem.html" target="_blank" rel="noopener">Open Resources <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="card">
+                        <h3>3rd Semester</h3>
+                        <p>Core department subjects with organized folders for fast access.</p>
+                        <a href="web-3rd-sem.html" target="_blank" rel="noopener">Open Resources <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <div class="main-content">
-        <!-- Add your page content here -->
-    </div>
+        <section class="features" id="features">
+            <div class="container">
+                <h2>Why students use Study Hub</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-folder-tree"></i>
+                        <h3>Organized Learning</h3>
+                        <p>All important material is grouped semester-wise for easier navigation.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>Save Time</h3>
+                        <p>Spend less time searching and more time understanding concepts.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>Student Friendly</h3>
+                        <p>Simple interface designed for everyday academic use in college.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- footer -->
+        <section class="contact" id="contact">
+            <div class="container contact-box">
+                <h2>Need a new subject folder or update?</h2>
+                <p>Share your suggestion and help us improve the platform for everyone.</p>
+                <a href="about-us.html" target="_blank" rel="noopener" class="btn btn-primary">Contact Team</a>
+            </div>
+        </section>
+    </main>
+
     <footer class="site-footer">
-        <div class="footer-content">
-            THIS PLATEFORM IS MANAGED AND CREATED BY:<strong> JAYKUMAR S. PATEL</strong>
+        <div class="container footer-wrap">
+            <p>Created and managed by <strong>JAYKUMAR S. PATEL</strong>.</p>
+            <p>© <span id="currentYear"></span> Study Hub</p>
         </div>
     </footer>
 
