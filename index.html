@@ -104,6 +104,29 @@
                 <a href="about-us.html" target="_blank" rel="noopener" class="btn btn-primary">Contact Team</a>
             </div>
         </section>
+
+        <section class="ai-chat" id="ai-location-chat">
+            <div class="container">
+                <h2>AI Material Location Chat</h2>
+                <p class="section-subtitle">Ask where your study material is available and get step-by-step collection guidance.</p>
+                <div class="chat-shell" aria-live="polite">
+                    <div class="chat-messages" id="chatMessages">
+                        <article class="chat-bubble bot">
+                            <p>Hi! I am your Study Hub assistant. Ask me like:</p>
+                            <ul>
+                                <li>"2nd sem ka math material kaha milega?"</li>
+                                <li>"How to collect 3rd sem notes?"</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <form class="chat-form" id="chatForm">
+                        <label for="chatInput" class="sr-only">Ask material location</label>
+                        <input type="text" id="chatInput" placeholder="Ask about semester material location..." autocomplete="off" required>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
