@@ -19,6 +19,7 @@ html {
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
     color: var(--text);
     background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url("new image.jpg") center/cover fixed;
 }
@@ -76,6 +77,7 @@ body {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .main-nav a {
@@ -130,6 +132,7 @@ h3 {
 .feature-item p,
 .contact p {
     color: var(--muted);
+    line-height: 1.6;
 }
 
 .hero-actions {
@@ -140,6 +143,9 @@ h3 {
 }
 
 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
@@ -323,6 +329,16 @@ h3 {
 }
 
 @media (max-width: 860px) {
+    .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
     .hero-grid,
     .cards,
     .feature-grid {
@@ -331,5 +347,56 @@ h3 {
 
     .hero {
         padding-top: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: min(1100px, 94%);
+    }
+
+    .brand-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand-title {
+        font-size: 0.95rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.72rem;
+    }
+
+    .main-nav {
+        gap: 0.7rem;
+    }
+
+    .main-nav a {
+        font-size: 0.92rem;
+    }
+
+    .hero {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .hero-actions,
+    .chat-form {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .chat-form input {
+        font-size: 16px;
+    }
+
+    .resources,
+    .features,
+    .contact,
+    .ai-chat {
+        padding: 2.2rem 0;
     }
 }

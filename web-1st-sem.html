@@ -143,12 +143,36 @@
 
         /* Responsive Design */
         @media (max-width: 600px) {
+            body {
+                padding: 12px;
+                align-items: flex-start;
+            }
             .content-wrapper {
-                padding: 30px 25px;
+                padding: 24px 16px;
+                border-radius: 18px;
+            }
+            .page-header {
+                margin-bottom: 24px;
+            }
+            .page-title {
+                font-size: 23px;
+            }
+            .page-subtitle {
+                font-size: 14px;
             }
             .subjects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 20px;
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .subject-card {
+                min-height: auto;
+                padding: 16px;
+            }
+            .subject-name {
+                font-size: 16px;
+            }
+            .download-btn {
+                width: 100%;
             }
         }
     </style>

@@ -158,6 +158,44 @@
         .back-link a:hover {
             color: #777; /* Darker gray on hover */
         }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 12px;
+                align-items: flex-start;
+            }
+
+            .main-container {
+                padding: 24px 16px;
+                border-radius: 16px;
+            }
+
+            .header {
+                margin-bottom: 24px;
+            }
+
+            .header h1 {
+                font-size: 23px;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .subject-card {
+                padding: 18px 14px;
+            }
+
+            .subject-name {
+                font-size: 18px;
+            }
+
+            .download-btn {
+                width: 100%;
+                padding: 10px 18px;
+            }
+        }
     </style>
 </head>
 <body>
