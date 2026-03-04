@@ -108,20 +108,21 @@
         <section class="ai-chat" id="ai-location-chat">
             <div class="container">
                 <h2>AI Material Location Chat</h2>
-                <p class="section-subtitle">Ask where your study material is available and get step-by-step collection guidance.</p>
+                <p class="section-subtitle">Bas subject name likho aur direct material location + link pao.</p>
                 <div class="chat-shell" aria-live="polite">
                     <div class="chat-messages" id="chatMessages">
                         <article class="chat-bubble bot">
-                            <p>Hi! I am your Study Hub assistant. Ask me like:</p>
+                            <p>Hi! Main AI Location Chat hoon. Sirf subject location deta hoon.</p>
                             <ul>
-                                <li>"2nd sem ka math material kaha milega?"</li>
-                                <li>"How to collect 3rd sem notes?"</li>
+                                <li>"DBMS"</li>
+                                <li>"Physics"</li>
+                                <li>"Maths-2"</li>
                             </ul>
                         </article>
                     </div>
                     <form class="chat-form" id="chatForm">
                         <label for="chatInput" class="sr-only">Ask material location</label>
-                        <input type="text" id="chatInput" placeholder="Ask about semester material location..." autocomplete="off" required>
+                        <input type="text" id="chatInput" placeholder="Sirf subject name likho... (e.g., DSA, EVS, Physics)" autocomplete="off" required>
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 </div>
