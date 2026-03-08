@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Study Hub Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: rgba(15, 23, 42, 0.78);
+            --primary: #38bdf8;
+            --primary-dark: #0ea5e9;
+            --text: #e2e8f0;
+            --muted: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url("new image.jpg") center/cover fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .join-container {
+            background: var(--panel);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 20px;
+            padding: 1.5rem;
+            max-width: 760px;
+            width: min(95vw, 760px);
+            box-shadow: 0 20px 40px rgba(8, 47, 73, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .join-header { text-align: center; margin-bottom: 1rem; }
+
+        .join-logo {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 0.7rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #06243a;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+            font-size: 1.5rem;
+        }
+
+        .join-header h2 { margin: 0 0 0.35rem; font-size: 1.5rem; }
+        .join-subtitle { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+        .join-form { display: flex; flex-direction: column; gap: 0.95rem; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+        .form-group label { font-weight: 600; font-size: 0.88rem; }
+
+        .form-group input,
+        .form-group select {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 12px;
+            padding: 0.7rem 0.8rem;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.98rem;
+            width: 100%;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12);
+        }
+
+        .gender-options { display: flex; gap: 0.8rem; }
+
+        .gender-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            cursor: pointer;
+            background: rgba(56, 189, 248, 0.1);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            min-width: 92px;
+            padding: 0.75rem;
+            transition: all 0.25s ease;
+        }
+
+        .gender-option:hover { border-color: rgba(56, 189, 248, 0.35); }
+        .gender-option.selected {
+            border-color: rgba(56, 189, 248, 0.7);
+            background: rgba(56, 189, 248, 0.24);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.18);
+        }
+
+        .gender-option input { display: none; }
+        .gender-icon { font-size: 1.25rem; }
+
+        .photo-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(56, 189, 248, 0.1);
+            border: 2px dashed rgba(56, 189, 248, 0.35);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .photo-preview i { color: var(--primary); font-size: 1.4rem; }
+        .photo-preview span { color: var(--muted); font-size: 0.82rem; }
+
+        .join-btn {
+            width: 100%;
+            margin-top: 0.3rem;
+            border: none;
+            border-radius: 12px;
+            padding: 0.85rem;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #06243a;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .join-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+        .status-msg {
+            min-height: 1.2rem;
+            font-size: 0.82rem;
+            margin-top: 0.2rem;
+            color: #7dd3fc;
+        }
+
+        .back-link {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+            text-align: center;
+        }
+
+        .back-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+            .form-row { grid-template-columns: 1fr; }
+            .join-container { padding: 1.1rem 0.95rem; }
+            .gender-options { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="join-container">
+        <div class="join-header">
+            <div class="join-logo"><i class="fa-solid fa-users"></i></div>
+            <h2>Join Study Hub Community</h2>
+            <p class="join-subtitle">Profile banao aur community me visible ho jao.</p>
+        </div>
+
+        <form class="join-form" id="profileForm" novalidate>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="collegeOption">College Option</label>
+                    <select id="collegeOption" required>
+                        <option value="" selected disabled>Select college option</option>
+                        <option value="LDRP-ITR">LDRP-ITR</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" id="collegeName" placeholder="Select college option first" required readonly>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-options">
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="male" required>
+                        <span class="gender-icon">&#128104;</span>
+                        <span>Male</span>
+                    </label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="female" required>
+                        <span class="gender-icon">&#128105;</span>
+                        <span>Female</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="profilePhoto">Profile Photo</label>
+                <div class="photo-preview" id="photoPreview" onclick="document.getElementById('profilePhoto').click()">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>Click to upload photo</span>
+                </div>
+                <input type="file" id="profilePhoto" accept="image/*" style="display:none;">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Create strong password" minlength="6" required>
+                </div>
+            </div>
+
+            <button type="submit" class="join-btn" id="joinBtn">
+                <i class="fa-solid fa-user-plus"></i>
+                <span id="joinBtnText">Join Community</span>
+            </button>
+            <p class="status-msg" id="statusMsg"></p>
+        </form>
+
+        <div class="back-link">
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEYS = {
+            currentUser: 'studyhub_current_user',
+            members: 'studyhub_members'
+        };
+
+        const profileForm = document.getElementById('profileForm');
+        const fullNameInput = document.getElementById('fullName');
+        const collegeOption = document.getElementById('collegeOption');
+        const collegeNameInput = document.getElementById('collegeName');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const profilePhotoInput = document.getElementById('profilePhoto');
+        const photoPreview = document.getElementById('photoPreview');
+        const genderOptions = document.querySelectorAll('.gender-option');
+        const statusMsg = document.getElementById('statusMsg');
+        const joinBtn = document.getElementById('joinBtn');
+        const joinBtnText = document.getElementById('joinBtnText');
+
+        let selectedPhotoData = '';
+
+        const parseJSON = (value, fallback) => {
+            try { return value ? JSON.parse(value) : fallback; } catch { return fallback; }
+        };
+        const normalizeMembers = (value) => Array.isArray(value) ? value : [];
+
+        const setStatus = (message, isError = false) => {
+            statusMsg.textContent = message;
+            statusMsg.style.color = isError ? '#fca5a5' : '#7dd3fc';
+        };
+
+        const setLoading = (loading) => {
+            joinBtn.disabled = loading;
+            joinBtnText.textContent = loading ? 'Saving...' : 'Join Community';
+        };
+
+        const setCollegeMode = (value) => {
+            if (value === 'LDRP-ITR') {
+                collegeNameInput.value = 'LDRP-ITR';
+                collegeNameInput.readOnly = true;
+                collegeNameInput.placeholder = 'LDRP-ITR';
+                return;
+            }
+            collegeNameInput.readOnly = false;
+            collegeNameInput.placeholder = 'Enter your college name';
+            if (value === 'other') {
+                collegeNameInput.value = '';
+                collegeNameInput.focus();
+            }
+        };
+
+        collegeOption.addEventListener('change', function() { setCollegeMode(this.value); });
+
+        function setSelectedGender(selectedOption) {
+            genderOptions.forEach((option) => option.classList.remove('selected'));
+            selectedOption.classList.add('selected');
+            const radio = selectedOption.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+        }
+
+        genderOptions.forEach((option) => {
+            option.addEventListener('click', () => setSelectedGender(option));
+            const radio = option.querySelector('input[type="radio"]');
+            if (radio) radio.addEventListener('change', () => setSelectedGender(option));
+        });
+
+        const readFileAsDataURL = (file) => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+
+        profilePhotoInput.addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            selectedPhotoData = await readFileAsDataURL(file);
+            photoPreview.innerHTML = `<img src="${selectedPhotoData}" style="width:90px;height:90px;border-radius:50%;object-fit:cover;" alt="Profile preview">`;
+        });
+
+        const savedUser = parseJSON(localStorage.getItem(STORAGE_KEYS.currentUser), null);
+        if (savedUser) {
+            fullNameInput.value = savedUser.fullName || '';
+            emailInput.value = savedUser.email || '';
+            if (savedUser.collegeName === 'LDRP-ITR') {
+                collegeOption.value = 'LDRP-ITR';
+                setCollegeMode('LDRP-ITR');
+            } else {
+                collegeOption.value = 'other';
+                setCollegeMode('other');
+                collegeNameInput.value = savedUser.collegeName || '';
+            }
+
+            const selectedRadio = document.querySelector(`input[name="gender"][value="${savedUser.gender}"]`);
+            if (selectedRadio) {
+                selectedRadio.checked = true;
+                setSelectedGender(selectedRadio.closest('.gender-option'));
+            }
+
+            if (savedUser.photoData) {
+                selectedPhotoData = savedUser.photoData;
+                photoPreview.innerHTML = `<img src="${selectedPhotoData}" style="width:90px;height:90px;border-radius:50%;object-fit:cover;" alt="Profile preview">`;
+            }
+        }
+
+        profileForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            setStatus('');
+
+            const selectedGender = document.querySelector('input[name="gender"]:checked');
+            if (!selectedGender) {
+                setStatus('Please select gender.', true);
+                return;
+            }
+
+            if (!profileForm.checkValidity()) {
+                setStatus('Please fill all required fields correctly.', true);
+                profileForm.reportValidity();
+                return;
+            }
+
+            if (!selectedPhotoData && profilePhotoInput.files[0]) {
+                selectedPhotoData = await readFileAsDataURL(profilePhotoInput.files[0]);
+            }
+
+            const profile = {
+                fullName: fullNameInput.value.trim(),
+                collegeName: collegeNameInput.value.trim(),
+                gender: selectedGender.value,
+                email: emailInput.value.trim(),
+                photoData: selectedPhotoData || '',
+                joinedAt: new Date().toISOString()
+            };
+
+            setLoading(true);
+
+            const members = normalizeMembers(parseJSON(localStorage.getItem(STORAGE_KEYS.members), []));
+            const existingIndex = members.findIndex(
+                (member) => (member.email || '').toLowerCase() === profile.email.toLowerCase()
+            );
+
+            if (existingIndex >= 0) {
+                members[existingIndex] = profile;
+            } else {
+                members.push(profile);
+            }
+
+            localStorage.setItem(STORAGE_KEYS.members, JSON.stringify(members));
+            localStorage.setItem(STORAGE_KEYS.currentUser, JSON.stringify(profile));
+            setStatus('Profile saved successfully. Redirecting...');
+            setTimeout(() => { window.location.href = 'index.html'; }, 700);
+        });
+    </script>
+</body>
+</html>

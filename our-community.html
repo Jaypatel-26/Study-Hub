@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Community | Study Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="web.css">
+</head>
+<body class="community-layout">
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="index.html" class="brand">
+                <img src="LOGO.jpg" alt="Study Hub logo" class="brand-logo">
+                <div>
+                    <p class="brand-title">Study Hub</p>
+                    <p class="brand-subtitle">College Learning Portal</p>
+                </div>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="join-community.html">Join/Update Profile</a>
+            </nav>
+            <div class="header-user" id="headerUser">
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="user-meta">
+                    <p class="user-name" id="userName">Guest User</p>
+                    <p class="user-id" id="userId">Guest ID: --</p>
+                    <button type="button" class="user-action-btn" id="userActionBtn" hidden>Logout / Reset</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="community-page">
+        <div class="container">
+            <div class="community-page-header">
+                <h1>Our Community</h1>
+                <p class="section-subtitle">All joined students are shown here.</p>
+            </div>
+            <div class="community-empty" id="communityEmpty" hidden>
+                No community members found yet. Join first to create your profile.
+            </div>
+            <section class="community-grid" id="communityGrid"></section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-wrap">
+            <p>Created and managed by <strong>JAYKUMAR S. PATEL</strong>.</p>
+            <p><span id="currentYear"></span> Study Hub</p>
+        </div>
+    </footer>
+
+    <script src="web.js"></script>
+</body>
+</html>
